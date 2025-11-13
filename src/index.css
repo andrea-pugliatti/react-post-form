@@ -21,3 +21,50 @@ main {
 	max-width: 1000px;
 	margin: 0 auto;
 }
+
+form {
+	margin: 1rem 0;
+}
+
+form input {
+	padding: 0.2rem 0.4rem;
+}
+
+.form-header {
+	* + * {
+		margin: 1rem 0.5rem;
+	}
+}
+
+.form-body {
+	display: flex;
+	textarea {
+		margin-inline: 1rem;
+		min-width: 500px;
+		min-height: 200px;
+	}
+}
+
+.form-label {
+	font-weight: 600;
+}
+
+.form-submit {
+	display: flex;
+	button {
+		margin: 1rem;
+		padding: 0.6rem 3rem;
+		border: 2px dashed;
+		border-radius: 20px;
+		&:hover {
+			cursor: pointer;
+			border: 2px solid;
+		}
+	}
+
+	.form-alert {
+		margin: 1rem;
+		padding: 0.3rem 2rem;
+		align-self: center;
+	}
+}

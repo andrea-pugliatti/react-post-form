@@ -24,7 +24,6 @@ export default function Main() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(formPost);
 
 		const requestOptions = {
 			method: "POST",
@@ -51,11 +50,11 @@ export default function Main() {
 
 	return (
 		<main className="container">
-			<h2>Crea un nuovo post</h2>
-
 			<form onSubmit={handleSubmit}>
-				<div className="">
-					<label htmlFor="author" className="">
+				<h2>Crea un nuovo post</h2>
+
+				<div className="form-header">
+					<label htmlFor="author" className="form-label">
 						Autore
 					</label>
 					<input
@@ -66,10 +65,8 @@ export default function Main() {
 						onChange={handleInput}
 						required
 					/>
-				</div>
 
-				<div className="">
-					<label htmlFor="title" className="">
+					<label htmlFor="title" className="form-label">
 						Titolo
 					</label>
 					<input
@@ -80,10 +77,21 @@ export default function Main() {
 						onChange={handleInput}
 						required
 					/>
+
+					<label htmlFor="public" className="form-label">
+						Pubblica
+					</label>
+					<input
+						type="checkbox"
+						name="public"
+						className=""
+						checked={formPost.public}
+						onChange={handleInput}
+					/>
 				</div>
 
-				<div className="">
-					<label htmlFor="body" className="">
+				<div className="form-body">
+					<label htmlFor="body" className="form-label">
 						Testo
 					</label>
 					<textarea
@@ -96,21 +104,10 @@ export default function Main() {
 					/>
 				</div>
 
-				<div className="">
-					<label htmlFor="public" className="">
-						Pubblica
-					</label>
-					<input
-						type="checkbox"
-						name="public"
-						className=""
-						checked={formPost.public}
-						onChange={handleInput}
-					/>
+				<div className="form-submit">
+					<button type="submit">Post</button>
+					<p className="form-alert">{alert}</p>
 				</div>
-
-				<button type="submit">Post</button>
-				<p className="alert">{alert}</p>
 			</form>
 		</main>
 	);
