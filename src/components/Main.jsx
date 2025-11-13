@@ -11,6 +11,16 @@ export default function Main() {
 	};
 
 	const [formPost, setFormPost] = useState(emptyPost);
+
+	const handleInput = (e) => {
+		const value =
+			e.target.type === "checkbox" ? e.target.checked : e.target.value;
+		setFormPost({
+			...formPost,
+			[e.target.name]: value,
+		});
+	};
+
 	return (
 		<main className="container">
 			<h2>Crea un nuovo post</h2>
@@ -70,6 +80,7 @@ export default function Main() {
 						onChange={handleInput}
 					/>
 				</div>
+
 				<button type="submit">Post</button>
 			</form>
 		</main>
