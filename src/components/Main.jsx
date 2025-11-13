@@ -11,10 +11,10 @@ export default function Main() {
 	};
 
 	const [formPost, setFormPost] = useState(emptyPost);
-
 	return (
 		<main className="container">
 			<h2>Crea un nuovo post</h2>
+
 			<form>
 				<div className="">
 					<label htmlFor="author" className="">
@@ -29,6 +29,7 @@ export default function Main() {
 						required
 					/>
 				</div>
+
 				<div className="">
 					<label htmlFor="title" className="">
 						Titolo
@@ -42,19 +43,21 @@ export default function Main() {
 						required
 					/>
 				</div>
+
 				<div className="">
 					<label htmlFor="body" className="">
 						Testo
 					</label>
-					<input
-						type="text"
+					<textarea
 						name="body"
 						className=""
+						rows="5"
 						value={formPost.body}
 						onChange={handleInput}
 						required
 					/>
 				</div>
+
 				<div className="">
 					<label htmlFor="public" className="">
 						Pubblica
@@ -65,7 +68,6 @@ export default function Main() {
 						className=""
 						checked={formPost.public}
 						onChange={handleInput}
-						required
 					/>
 				</div>
 				<button type="submit">Post</button>
