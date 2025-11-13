@@ -21,11 +21,28 @@ export default function Main() {
 		});
 	};
 
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		console.log(formPost);
+
+		const requestOptions = {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify(formPost),
+			redirect: "follow",
+		};
+
+		fetch(postsEndpoint, requestOptions)
+			.then((response) => response.text())
+			.then((result) => console.log(result))
+			.catch((error) => console.error(error));
+	};
+
 	return (
 		<main className="container">
 			<h2>Crea un nuovo post</h2>
 
-			<form>
+			<form onSubmit={handleSubmit}>
 				<div className="">
 					<label htmlFor="author" className="">
 						Autore
