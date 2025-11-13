@@ -60,7 +60,7 @@ export default function Main() {
 					<input
 						type="text"
 						name="author"
-						className=""
+						id="author"
 						value={formPost.author}
 						onChange={handleInput}
 						required
@@ -72,7 +72,7 @@ export default function Main() {
 					<input
 						type="text"
 						name="title"
-						className=""
+						id="title"
 						value={formPost.title}
 						onChange={handleInput}
 						required
@@ -84,7 +84,7 @@ export default function Main() {
 					<input
 						type="checkbox"
 						name="public"
-						className=""
+						id="public"
 						checked={formPost.public}
 						onChange={handleInput}
 					/>
@@ -96,8 +96,7 @@ export default function Main() {
 					</label>
 					<textarea
 						name="body"
-						className=""
-						rows="5"
+						id="body"
 						value={formPost.body}
 						onChange={handleInput}
 						required

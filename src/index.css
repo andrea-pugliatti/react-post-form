@@ -39,6 +39,7 @@ form input {
 .form-body {
 	display: flex;
 	textarea {
+		padding: 0.5rem;
 		margin-inline: 1rem;
 		min-width: 500px;
 		min-height: 200px;
