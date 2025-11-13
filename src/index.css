@@ -8,7 +8,12 @@ body {
 	font-family: system-ui, Helvetica, Arial, sans-serif;
 }
 
+header {
+	background-color: rgb(237, 237, 237);
+	padding: 1.5rem 5rem;
+}
+
 .container {
-	max-width: 1280px;
+	max-width: 1000px;
 	margin: 0 auto;
 }
