@@ -11,6 +11,7 @@ export default function Main() {
 	};
 
 	const [formPost, setFormPost] = useState(emptyPost);
+	const [success, setSuccess] = useState("");
 
 	const handleInput = (e) => {
 		const value =
@@ -33,7 +34,14 @@ export default function Main() {
 		};
 
 		fetch(postsEndpoint, requestOptions)
-			.then((response) => response.text())
+			.then((response) => {
+				if (response.status === 201) {
+					setSuccess("Ticket inviato con successo");
+				}
+				setFormPost(emptyPost);
+
+				return response.text();
+			})
 			.then((result) => console.log(result))
 			.catch((error) => console.error(error));
 	};
@@ -41,7 +49,7 @@ export default function Main() {
 	return (
 		<main className="container">
 			<h2>Crea un nuovo post</h2>
-
+			<p className="success">{success}</p>
 			<form onSubmit={handleSubmit}>
 				<div className="">
 					<label htmlFor="author" className="">
