@@ -11,7 +11,7 @@ export default function Main() {
 	};
 
 	const [formPost, setFormPost] = useState(emptyPost);
-	const [success, setSuccess] = useState("");
+	const [alert, setAlert] = useState("");
 
 	const handleInput = (e) => {
 		const value =
@@ -36,20 +36,23 @@ export default function Main() {
 		fetch(postsEndpoint, requestOptions)
 			.then((response) => {
 				if (response.status === 201) {
-					setSuccess("Ticket inviato con successo");
+					setAlert("Post pubblicato con successo!");
 				}
 				setFormPost(emptyPost);
 
 				return response.text();
 			})
 			.then((result) => console.log(result))
-			.catch((error) => console.error(error));
+			.catch((error) => {
+				setAlert("Errore nella pubblicazione del post!");
+				console.error(error);
+			});
 	};
 
 	return (
 		<main className="container">
 			<h2>Crea un nuovo post</h2>
-			<p className="success">{success}</p>
+
 			<form onSubmit={handleSubmit}>
 				<div className="">
 					<label htmlFor="author" className="">
@@ -107,6 +110,7 @@ export default function Main() {
 				</div>
 
 				<button type="submit">Post</button>
+				<p className="alert">{alert}</p>
 			</form>
 		</main>
 	);
